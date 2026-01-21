@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_bd
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: ecommerces
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin_bd
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
+  smtp4dev:
+    image: rnwood/smtp4dev:latest
+    container_name: smtp4dev
+    restart: always
+    ports:
+      - "2525:25"
+      - "8083:80"
+    environment:
+      - ServerOptions__HostName=smtp4dev
+      - ServerOptions__Port=25

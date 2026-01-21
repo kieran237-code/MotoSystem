@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Documents API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #005a9e;
+    }
+    pre {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      max-height: 400px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test API Documents</h1>
+  <button class="btn" onclick="fetchDocuments('pdf')">Générer PDF</button>
+  <button class="btn" onclick="fetchDocuments('html')">Générer HTML</button>
+
+  <h2>Résultat :</h2>
+  <pre id="output">Clique sur un bouton pour tester...</pre>
+
+  <script>
+    async function fetchDocuments(type) {
+      try {
+        const response = await fetch(`http://localhost:8084/api/documents/${type}`);
+        if (!response.ok) {
+          document.getElementById('output').textContent = "Erreur: " + response.status;
+          return;
+        }
+        const data = await response.json();
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        document.getElementById('output').textContent = "Erreur: " + error;
+      }
+    }
+  </script>
+</body>
+</html>
+

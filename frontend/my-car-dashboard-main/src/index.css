@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* My_Car Design System - Dynamic & Colorful Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Racing+Sans+One&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    /* Primary: Electric Blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Vibrant Orange */
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent: Energy Green */
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 10%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(280 80% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 93% 47%));
+    --gradient-accent: linear-gradient(135deg, hsl(142 71% 45%), hsl(180 70% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(280 80% 55%) 50%, hsl(25 95% 53%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 30% 15% / 0.08);
+    --shadow-md: 0 4px 16px -4px hsl(220 30% 15% / 0.12);
+    --shadow-lg: 0 8px 32px -8px hsl(220 30% 15% / 0.16);
+    --shadow-primary: 0 8px 24px -8px hsl(217 91% 60% / 0.4);
+    --shadow-secondary: 0 8px 24px -8px hsl(25 95% 53% / 0.4);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 92%;
+    --sidebar-accent-foreground: 220 30% 15%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  .font-display {
+    font-family: 'Racing Sans One', cursive;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .shadow-secondary {
+    box-shadow: var(--shadow-secondary);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-2;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
